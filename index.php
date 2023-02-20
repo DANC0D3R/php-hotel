@@ -45,10 +45,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Daniele Minieri">
-        
         <title>PHP Hotels</title>
     </head>
+
     <body>
-        
+        <div>
+            <?php foreach($hotels as $hotel) : ?>
+                <p>
+                    <?php foreach($hotel as $key => $value) : ?>
+                    <b><?= $key ?></b>: <?= $value ?>  
+                    <?php endforeach; ?>
+                </p>
+            <?php endforeach; ?>
+        </div>
     </body>
 </html>
