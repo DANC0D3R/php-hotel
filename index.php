@@ -53,6 +53,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Phudu:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <!-- Fontawesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         
@@ -126,9 +128,9 @@
                 <?php foreach($hotels as $hotel):?>
                     <tr>
                     <th scope="row"><?php echo $hotel['name']; ?></th>
-                    <td><?php echo ($hotel['parking'])? 'Si' : 'No';?></td>
-                    <td><?php echo $hotel['vote'] ?></td>
-                    <td><?php echo $hotel['distance_to_center'] ;?></td>
+                    <td><?php echo ($hotel['parking'])? '<i class="fa-solid fa-circle-check text-success"></i>' : '<i class="fa-solid fa-circle-xmark text-danger"></i>';?></td>
+                    <td><?php echo $hotel['vote'] ?> ★</td>
+                    <td><?php echo $hotel['distance_to_center'];?></td>
                     </tr>
                 <?php endforeach; ?>
             
@@ -136,10 +138,10 @@
             // Altrimenti filtra la ricerca con parametri inseriti
             else { ?>
                 <?php foreach($hotels as $key => $hotel){?>
-                    <?php if($hotel['parking'] == $park && $hotel['vote']>=$rating) {?>
+                    <?php if($hotel['parking'] == $park && $hotel['vote'] >= $rating) {?>
                         <tr>
                             <th scope="row"><?php echo $hotel['name'] ;?></th>
-                            <td><?php echo ($hotel['parking'])? 'Si' : 'No';?></td>
+                            <td><?php echo ($hotel['parking'])? '<i class="fa-solid fa-circle-check text-success"></i>' : '<i class="fa-solid fa-circle-xmark text-danger"></i>';?></td>
                             <td><?php echo $hotel['vote'] ;?></td>
                             <td><?php echo $hotel['distance_to_center'] ;?></td>
                         </tr>
